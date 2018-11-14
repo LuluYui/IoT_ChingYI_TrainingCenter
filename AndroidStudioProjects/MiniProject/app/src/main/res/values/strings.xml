@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">iOrientation</string>
+    <string name="title_activity_map_home">Map</string>
+    <string name="location_name">Event Title</string>
+    <string name="date">Date :</string>
+    <string name="description">description</string>
+    <string name="preview_submit"><![CDATA[Preview & submit]]></string>
+    <string name="add_location">Pin Location Here</string>
+    <string name="primary_short">Something</string>
+    <string name="subtext">Otherthing</string>
+    <string name="action_1">Action1</string>
+    <string name="action_2">Action2</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_add_favourite">Add to Favourites</string>
+    <string name="action_play_next">Explore more</string>
+    <string name="backdrop_title">Delight Story</string>
+    <string name="backdrop_subtitle">Top Story nearby you</string>
+</resources>
