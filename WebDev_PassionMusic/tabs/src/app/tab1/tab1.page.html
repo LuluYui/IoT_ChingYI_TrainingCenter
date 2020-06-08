@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Analytical Chart
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Time to Change</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <calendar
+          [eventSource]="eventSource"
+          [calendarMode]="calendar.mode"
+          [currentDate]="calendar.currentDate"
+          startHour="6"
+          endHour="20"
+          step="30"
+          startingDayWeek="1">
+  </calendar>
+
+
+</ion-content>
+
