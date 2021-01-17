@@ -1,0 +1,17 @@
+{
+  "name": "iot-web-portal",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@esri/react-arcgis": "^5.1.0",
+    "esri-loader": "^3.0.0",
+    "next": "^10.0.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
