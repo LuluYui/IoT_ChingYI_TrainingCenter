@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import Chart from "chart.js";
-import "./BarChart.css";
 
-export default class BarChart extends Component {
+
+export default class Testing extends Component {
   constructor(props) {
     super(props);
     this.chartRef = React.createRef();
@@ -65,6 +64,6 @@ export default class BarChart extends Component {
   }
 
   render() {
-    return <canvas ref={this.chartRef} />;
+    return <h1>Hello World</h1>;
   }
 }

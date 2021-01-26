@@ -65,6 +65,6 @@ export default class BarChart extends Component {
   }
 
   render() {
-    return <canvas ref={this.chartRef} />;
+    return <h1>Hello World</h1>;
   }
 }

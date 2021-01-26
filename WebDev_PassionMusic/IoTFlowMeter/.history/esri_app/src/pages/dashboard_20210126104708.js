@@ -14,11 +14,11 @@ export default class Dashboard extends Component {
  
   render() {
     return (
-      
-      <div>
-        <BarChart
+      <BarChart
           color="#70CAD1"
         />
+      <div>
+        
 
         <h1>testing functionality</h1>
       </div>  

@@ -10,7 +10,7 @@ export default class BarChart extends Component {
   }
 
   componentDidMount() {
-    this.myChart = new Chart(this.chartRef.current, {
+    this.myChart = new Chart(this, {
       type: "bar",
       data: {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],

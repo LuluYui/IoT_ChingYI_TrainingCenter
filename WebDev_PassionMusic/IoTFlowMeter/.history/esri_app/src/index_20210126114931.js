@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { setDefaultOptions } from 'esri-loader';
 import reportWebVitals from './reportWebVitals';
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css'
 
