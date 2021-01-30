@@ -9,7 +9,7 @@ The Web Portal consist of mainly two sections:
 
 ![WebApp](https://github.com/LuluYui/IoT_ChingYI_TrainingCenter/blob/master/WebMap.png)
 
-![Dashboard](https://github.com/LuluYui/IoT_ChingYI_TrainingCenter/tree/master/Dashboard.jpg)
+![Dashboard](https://github.com/LuluYui/IoT_ChingYI_TrainingCenter/blob/master/Dashboard.png)
 
 ## Embedded Framework
 
