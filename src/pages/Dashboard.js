@@ -62,7 +62,9 @@ export default class Dashboard extends Component {
                     average={average}
                     labels={labels} />
 
-            </div>
+      </div>
+
+
     );
   }
 }
