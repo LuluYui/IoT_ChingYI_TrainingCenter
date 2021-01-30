@@ -7,9 +7,9 @@ The Web Portal consist of mainly two sections:
 1. The Web map showing the location of the data logger
 2. Dashboard - Showing the Charts for the flow data and possibly pressure data in the future.
 
-[WebApp](https://github.com/LuluYui/IoT_ChingYI_TrainingCenter/tree/master/WebMap.jpg)
+![WebApp](https://github.com/LuluYui/IoT_ChingYI_TrainingCenter/tree/master/WebMap.jpg)
 
-[Dashboard](https://github.com/LuluYui/IoT_ChingYI_TrainingCenter/tree/master/Dashboard.jpg)
+![Dashboard](https://github.com/LuluYui/IoT_ChingYI_TrainingCenter/tree/master/Dashboard.jpg)
 
 ## Embedded Framework
 
