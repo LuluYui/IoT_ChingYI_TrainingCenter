@@ -55,3 +55,9 @@ button[value=lastquarter] {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
+
+button[value=genRandom] { 
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
