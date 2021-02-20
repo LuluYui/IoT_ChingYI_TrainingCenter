@@ -35,7 +35,7 @@ export default class BarChart extends Component {
 
     console.log(data);
     myLineChart = new Chart(myChartRef, {
-      type: "scatter",
+      type: "realtime",
       showLine: true,
       data: {
         label: "random Number",
