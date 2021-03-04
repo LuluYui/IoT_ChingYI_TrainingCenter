@@ -18,8 +18,8 @@ export default class NavBar extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link as={Link} to="/home">Map</Nav.Link>
+              <Nav.Link as={Link} to="/webscene">WebScene</Nav.Link>
               <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
-              <Nav.Link as={Link} to="/dashboard">Data</Nav.Link>
               <NavDropdown title="Others" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">

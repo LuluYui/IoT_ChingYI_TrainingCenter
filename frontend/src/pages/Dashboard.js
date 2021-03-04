@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./Dashboard.css";
 import BarChart from "../components/BarChart.js";
 import classes from "./Dashboard.module.css";
 import chartIcon from "../assets/chart-icon.svg";
+import axios from 'axios'
 import {
   managerData,
   nationalAverageData,
@@ -23,11 +23,31 @@ export default class Dashboard extends Component {
     labels: yearLabels,
   };
 
+  query_data = () => {
+
+  }
+
   componentDidMount() {
     this.genRandomNumber()
+    console.log("something is wrong")
+
+    const getData = async () => {
+      try {
+        const res = await axios.get('http://127.0.0.1:5001/')
+        console.log("running this code")
+        const todos = res.data;
+        return todos
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    this.setState({result: getData()})
+
   }
 
   componentDidUpdate() {
+
   }
 
   genRandomNumber = (e) => {
@@ -47,7 +67,7 @@ export default class Dashboard extends Component {
         y: y,
       });
     }
-    
+
     this.setState({data: dataPoints, random: data})
   };
 
@@ -65,21 +85,31 @@ export default class Dashboard extends Component {
       average: newAverage,
       labels: newLabels,
     });
+
+    console.log(this.state.result)
   };
 
   render() {
     const { random, data, average, labels } = this.state;
     return (
-      <div className={classes.container}>
+   
+   <div className={classes.container}>
         <header>
-          <img src={chartIcon} alt="bar chart icon" />
+          <img src={chartIcon} alt="flow chart icon" />
           <h1>Flow Chart</h1>
         </header>
 
-
-
-        <BarChart data={data} average={average} labels={labels} />
-      
+      <div className={classes.buttonContainer}>
+        <button 
+          value="console show"
+          onClick={this.handleButtonClick}
+          >
+            Last Quarter
+          </button>
+      </div>        
+        <div className={classes.container}>
+          <BarChart data={data} average={average} labels={labels} />
+        </div>
       </div>
     );
   }
