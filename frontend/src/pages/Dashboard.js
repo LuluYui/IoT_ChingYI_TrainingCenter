@@ -3,6 +3,8 @@ import BarChart from "../components/BarChart.js";
 import classes from "./Dashboard.module.css";
 import chartIcon from "../assets/chart-icon.svg";
 import axios from 'axios'
+import FlowChart from "../components/charts/FlowChart.js"
+
 import {
   managerData,
   nationalAverageData,
@@ -11,6 +13,7 @@ import {
   nationalAverageQuarterData,
   quarterLabels,
 } from "./mockData";
+import moment from "moment";
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -23,27 +26,46 @@ export default class Dashboard extends Component {
     labels: yearLabels,
   };
 
-  query_data = () => {
-
+  transform_data = (data) => {
+    var point = {}
+    var dataPoints = []
+    data.forEach(element => {
+      point.y = element["C1 Pressure ()"]
+      // point.x = element["Date/Time"].split(' ').join('T');
+      // point.x = point.x.replace("Feb", "02")
+      // var date = new Date('1995-12-17T03:24:00')
+      // console.log(date)
+      point.x = moment(point.x)
+      dataPoints.push(point)
+    })
+    return dataPoints
   }
 
   componentDidMount() {
     this.genRandomNumber()
-    console.log("something is wrong")
-
+    axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+    const options = {
+      headers: { 
+        'Access-Control-Allow-Origin' : '*',
+      'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+    }
+    }
+    axios(options)
     const getData = async () => {
       try {
-        const res = await axios.get('http://127.0.0.1:5001/')
-        console.log("running this code")
-        const todos = res.data;
+        const cors = 'https://cors-anywhere.herokuapp.com/'
+        const res = await axios.get(`http://127.0.0.1:5000/`)
+        const todos = this.transform_data(res.data);
+        console.log(todos)
+        this.setState({result: todos})
         return todos
       } catch (e) {
         console.error(e);
       }
     }
 
-    this.setState({result: getData()})
-
+    getData() 
+    console.log(this.state.result)
   }
 
   componentDidUpdate() {
@@ -51,7 +73,7 @@ export default class Dashboard extends Component {
   }
 
   genRandomNumber = (e) => {
-    var limit = 10; //increase number of dataPoints by increasing this
+    var limit = 50; //increase number of dataPoints by increasing this
     var y = 0;
     var dataPoints = [];
     var dataSeries = {
@@ -75,7 +97,6 @@ export default class Dashboard extends Component {
     const { value } = e.target;
     const isAnnual = value === "annual";
 
-    const newData = isAnnual ? managerData : managerQuarterData;
     const newLabels = isAnnual ? yearLabels : quarterLabels;
     const newAverage = isAnnual
       ? nationalAverageData
@@ -86,13 +107,12 @@ export default class Dashboard extends Component {
       labels: newLabels,
     });
 
-    console.log(this.state.result)
   };
 
   render() {
-    const { random, data, average, labels } = this.state;
+    const { data, average, labels, result} = this.state;
+
     return (
-   
    <div className={classes.container}>
         <header>
           <img src={chartIcon} alt="flow chart icon" />
@@ -107,8 +127,10 @@ export default class Dashboard extends Component {
             Last Quarter
           </button>
       </div>        
-        <div className={classes.container}>
-          <BarChart data={data} average={average} labels={labels} />
+        <div className={classes.charts}>
+          <FlowChart data={result} average={average} labels={labels} />
+
+          {/* <BarChart data={data} average={average} labels={labels} /> */}
         </div>
       </div>
     );

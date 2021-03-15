@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Chart from "chart.js";
 import classes from "./FlowChart.module.css";
+import moment from "moment";
 let myLineChart;
 
 //--Chart Style Options--//
@@ -12,11 +13,6 @@ Chart.defaults.global.elements.line.tension = 0;
 //--Chart Style Options--//
 export default class FlowChart extends Component {
   chartRef = React.createRef();
-
-  constructor(props) {
-    super(props);
-  }
-
   state = {};
 
   componentDidMount() {
@@ -29,8 +25,7 @@ export default class FlowChart extends Component {
 
   buildChart = () => {
     const myChartRef = this.chartRef.current.getContext("2d");
-    const { data, average, labels } = this.props;
-
+    const {data} = this.props;
     if (typeof myLineChart !== "undefined") myLineChart.destroy();
 
     myLineChart = new Chart(myChartRef, {
@@ -43,7 +38,7 @@ export default class FlowChart extends Component {
             label: "Time",
             data: data,
             showLine: true,
-            pointRadius: 5,
+            pointRadius: 2,
             pointHoverRadius: 5,
             fill: false,
             tension: 0,
@@ -53,7 +48,25 @@ export default class FlowChart extends Component {
       },
       options: {
         //Customize chart options
+        scales: {
 
+          xAxes: [{
+            type: 'time',
+            tick: {
+            },
+            time: {
+              unit: "second",
+              displayFormats: {
+                second: 'h:mm:ss a'
+              }
+            }
+          }], 
+          yAxes: [{
+              ticks: {
+                  beginAtZero: true
+              }
+          }]
+      }
       },
     });
   };

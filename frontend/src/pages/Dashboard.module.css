@@ -9,6 +9,11 @@
     flex-direction: column;
 }
 
+.charts {
+    display: flex;
+    flex-direction: row;
+}
+
 header {
     display: flex;
     align-items: center;
